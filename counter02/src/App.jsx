@@ -6,7 +6,6 @@ import './App.css'
 
 function App() {
   
-  
   let [counter , setCounter] = useState(15)
   // let counter = 15
   
@@ -22,6 +21,7 @@ function App() {
       setCounter((prevCounter)=> prevCounter +1)
       setCounter((prevCounter)=> prevCounter +1)
       setCounter((prevCounter)=> prevCounter +1)
+
       // this will give previous counter using callback
       // setCounter(prevCounter => prevCounter + 1) uses the latest state value provided by React to safely calculate the next state, which is especially useful when multiple state updates depend on the previous value.
 
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <>
-    <h1>CHai or React</h1>
+    <h1>Chai or React</h1>
     <h2>Counter value: {counter}</h2>
 
     <button onClick={addValue}>Add Value</button>
