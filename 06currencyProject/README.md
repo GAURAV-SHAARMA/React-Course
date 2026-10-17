@@ -1,16 +1,57 @@
-# React + Vite
+# React Currency Converter — Concepts & File Explanation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. `App.jsx` — Main Component
+**Concepts:** `useState`, Props, Event Handling, API Data Usage
 
-Currently, two official plugins are available:
+- `useState`: Amount, selected currencies aur converted amount ko store karta hai.
+- `useCurrencyInfo(from)`: Selected source currency ki exchange rates fetch karne ke liye custom hook call karta hai.
+- `Object.keys(currencyInfo)`: API data se currency names ki array banata hai.
+- `convert()`: Amount ko exchange rate se multiply karke converted value calculate karta hai.
+- `swap()`: Source aur destination currencies ko exchange karta hai.
+- `onSubmit`: Form submit hone par page reload hone se rokta hai aur conversion function call karta hai.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 2. `InputBox.jsx` — Reusable Component
+**Concepts:** Props, Controlled Components, `useId`, Event Handling, `map()`
 
-## React Compiler
+- `props`: Parent component se amount, currency options aur callback functions receive karta hai.
+- `useId()`: Input aur label ko uniquely connect karne ke liye ID generate karta hai.
+- `value`: Input ki value React state ke according display hoti hai.
+- `onChange`: Amount ya selected currency change hone par parent component ko update karta hai.
+- `map()`: Currency options ko dropdown ke `<option>` elements mein convert karta hai.
+- `amountDisable`: Output field mein amount editing ko disable karta hai.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 3. `useCurrencyInfo.js` — Custom Hook
+**Concepts:** Custom Hooks, `useState`, `useEffect`, Fetch API, Promises, JSON
 
-## Expanding the ESLint configuration
+- `useState`: API se milne wale exchange rates store karta hai.
+- `useEffect`: Selected currency change hone par API request chalata hai.
+- `fetch()`: External currency API se data request karta hai.
+- `.then()`: API response ko JSON mein convert karke process karta hai.
+- `setData()`: Received exchange rates ko state mein save karta hai.
+- `.catch()`: API request fail hone par error handle karta hai.
+- `return data`: Exchange rates ko `App.jsx` mein available karata hai.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 4. `src/components/index.js` — Export File
+**Concepts:** Named Exports, Module Reusability
+
+- `export { InputBox }`: `InputBox` ko ek central file se import karna possible banata hai.
+- Isse multiple components ko ek hi file se export aur import kiya ja sakta hai.
+
+## 5. `main.jsx` — Application Entry Point
+**Concepts:** `createRoot`, React DOM, Component Rendering
+
+- React application ko browser ke HTML element ke saath connect karta hai.
+- `createRoot()` React rendering root create karta hai.
+- `root.render()` ke through `App` component screen par render hota hai.
+
+## Main React Concepts Used
+
+- **Components:** UI ko reusable parts mein divide karna.
+- **Props:** Components ke beech data aur functions pass karna.
+- **State:** Changing data ko manage karna.
+- **Hooks:** React features use karna, jaise `useState` aur `useEffect`.
+- **Custom Hook:** API-fetching logic ko separate reusable function mein rakhna.
+- **API Integration:** External source se exchange rates lena.
+- **Event Handling:** Button clicks, form submission aur input changes handle karna.
+- **Array Methods:** `map()` aur `Object.keys()` se data process karna.
+- **Conditional UI Behaviour:** Props ke through input fields ko disable karna.
