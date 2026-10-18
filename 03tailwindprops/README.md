@@ -17,8 +17,8 @@ export default defineConfig({
   ],
 })
 
-
 @import "tailwindcss";
+
 
 ->> In index.css
 
