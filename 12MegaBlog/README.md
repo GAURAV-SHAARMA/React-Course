@@ -275,3 +275,15 @@ await authService.logout();
 **Final Understanding:**
 
 We created the `AuthService` class to keep all authentication operations organized in one place. We then created a single object of that class so that the same initialized Appwrite service can be reused throughout our React application without repeatedly writing or initializing authentication logic.
+
+
+
+
+<!-- day 3 -->
+
+we have created config.js in appwrite folder for creating many services like creating postv , update post and delete post , get post by id 
+
+
+<!-- dy 4 -->
+
+we will do the store config using redux
