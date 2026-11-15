@@ -286,4 +286,5 @@ we have created config.js in appwrite folder for creating many services like cre
 
 <!-- dy 4 -->
 
-we will do the store config using redux
+we will do the store config using redux , create header and footer  , then Usedispatch  , UseEffect in app.jsx  , create provider and difine in main.jsx
+

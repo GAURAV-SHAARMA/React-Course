@@ -31,12 +31,14 @@ function App() {
       .then((userData) => {
         if (userData) {
           dispatch(login({ userData }));
-        } else {
+        } 
+        else{
           dispatch(logout());
         }
       })
       .finally(() => setLoading(false)); //ye run hota hi hota hai
   });
+  
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-green-400">
       <div className="w-full block text-center">
